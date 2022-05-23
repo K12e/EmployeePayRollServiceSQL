@@ -112,4 +112,38 @@ mysql> select * from employeePayroll where start between cast("2020-02-29" as da
 4 rows in set (0.08 sec)
 
 
+UC6:
+
+mysql> alter table employeePayroll ADD gender CHAR(1) AFTER name;
+Query OK, 0 rows affected (0.80 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from employeePayroll;
++----+---------+--------+--------+------------+
+| id | name    | gender | salary | start      |
++----+---------+--------+--------+------------+
+|  1 | kalyani | NULL   |  40000 | 2020-02-29 |
+|  2 | Ayansh  | NULL   |  45000 | 2022-05-22 |
+|  3 | jawahar | NULL   |  55000 | 2022-05-22 |
+|  4 | kittu   | NULL   |  22000 | 2022-05-22 |
++----+---------+--------+--------+------------+
+4 rows in set (0.00 sec)
+
+mysql> alter table employeePayroll drop gender;
+Query OK, 0 rows affected (0.29 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from employeePayroll;
++----+---------+--------+------------+
+| id | name    | salary | start      |
++----+---------+--------+------------+
+|  1 | kalyani |  40000 | 2020-02-29 |
+|  2 | Ayansh  |  45000 | 2022-05-22 |
+|  3 | jawahar |  55000 | 2022-05-22 |
+|  4 | kittu   |  22000 | 2022-05-22 |
++----+---------+--------+------------+
+4 rows in set (0.00 sec)
+
+mysql>drop database payroll_service;
+
 
