@@ -1,0 +1,30 @@
+UC1:
+
+mysql> create database PayRollService;
+Query OK, 1 row affected (0.15 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| a                  |
+| customer           |
+| information_schema |
+| kalyanidb          |
+| marketing          |
+| mysql              |
+| onsql              |
+| payrollservice     |
+| performance_schema |
+| student            |
+| sys                |
+| testdb             |
+| world              |
+| z                  |
++--------------------+
+14 rows in set (0.00 sec)
+
+mysql> use PayRollService;
+Database changed
+
+
