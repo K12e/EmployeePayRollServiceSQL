@@ -69,8 +69,47 @@ mysql> select * from employeePayroll;
 +----+---------+--------+------------+
 |  1 | kalyani |  40000 | 2022-05-22 |
 |  2 | Ayansh  |  45000 | 2022-05-22 |
-|  3 | jawahar |  55000 | 2022-05-22 |
+|  3 | jawahar |  55000 | 2022-05-22 |r
 +----+---------+--------+------------+
 3 rows in set (0.00 sec)
+
+UC5:
+
+mysql> select salary from employeePayroll where name ='kalyani';
++--------+
+| salary |
++--------+
+|  40000 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> delete from employeePayroll where name='kalyani';
+Query OK, 1 row affected (0.12 sec)
+
+mysql> insert into employeePayroll(id,name,salary,start) values(1,"kalyani",40000.00,"2020-02-29");
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select * from employeePayroll;
++----+---------+--------+------------+
+| id | name    | salary | start      |
++----+---------+--------+------------+
+|  1 | kalyani |  40000 | 2020-02-29 |
+|  2 | Ayansh  |  45000 | 2022-05-22 |
+|  3 | jawahar |  55000 | 2022-05-22 |
+|  4 | kittu   |  22000 | 2022-05-22 |
++----+---------+--------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from employeePayroll where start between cast("2020-02-29" as date) and date(now());
++----+---------+--------+------------+
+| id | name    | salary | start      |
++----+---------+--------+------------+
+|  1 | kalyani |  40000 | 2020-02-29 |
+|  2 | Ayansh  |  45000 | 2022-05-22 |
+|  3 | jawahar |  55000 | 2022-05-22 |
+|  4 | kittu   |  22000 | 2022-05-22 |
++----+---------+--------+------------+
+4 rows in set (0.08 sec)
+
 
 
