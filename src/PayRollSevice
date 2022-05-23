@@ -27,4 +27,24 @@ mysql> show databases;
 mysql> use PayRollService;
 Database changed
 
+UC2:
+
+mysql> use PayRoll_Service;
+Database changed
+
+mysql> create table employeePayroll
+-> (id     INT unsigned NOT NULL AUTO_INCREMENT,name varchar(20) not null, salary double not null,start date not null,PRIMARY KEY(id));
+Query OK, 0 rows affected (0.66 sec)
+
+mysql> describe employeePayroll;
++--------+--------------+------+-----+---------+----------------+
+| Field  | Type         | Null | Key | Default | Extra          |
++--------+--------------+------+-----+---------+----------------+
+| id     | int unsigned | NO   | PRI | NULL    | auto_increment |
+| name   | varchar(20)  | NO   |     | NULL    |                |
+| salary | double       | NO   |     | NULL    |                |
+| start  | date         | NO   |     | NULL    |                |
++--------+--------------+------+-----+---------+----------------+
+4 rows in set (0.01 sec)
+
 
