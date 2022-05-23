@@ -47,4 +47,21 @@ mysql> describe employeePayroll;
 +--------+--------------+------+-----+---------+----------------+
 4 rows in set (0.01 sec)
 
+UC3:
+
+mysql>  insert into employeePayroll(id,name,salary,start) values (1,"kalyani",40000.00,"2022-05-22"),(2,"Ayansh",45000.00,"2022-05-22"),(3,"jawahar",55000.00,"2022-05-22");
+Query OK, 3 rows affected (0.15 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from employeePayroll;
++----+---------+--------+------------+
+| id | name    | salary | start      |
++----+---------+--------+------------+
+|  1 | kalyani |  40000 | 2022-05-22 |
+|  2 | Ayansh  |  45000 | 2022-05-22 |
+|  3 | jawahar |  55000 | 2022-05-22 |
++----+---------+--------+------------+
+3 rows in set (0.00 sec)
+
+
 
