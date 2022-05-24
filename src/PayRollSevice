@@ -146,6 +146,19 @@ mysql> select * from employeePayroll;
 
 mysql>drop database payroll_service;
 
+create table Employee_Payrol (employee_phone int(10) not null, employee_Address varchar(100),employee_Department varchar(50));
+Query OK, 0 rows affected, 1 warning (0.56 sec)
+
+describe Employee_Payrol;
++---------------------+--------------+------+-----+---------+-------+
+| Field               | Type         | Null | Key | Default | Extra |
++---------------------+--------------+------+-----+---------+-------+
+| employee_phone      | int          | NO   |     | NULL    |       |
+| employee_Address    | varchar(100) | YES  |     | NULL    |       |
+| employee_Department | varchar(50)  | YES  |     | NULL    |       |
++---------------------+--------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
 create table Employee_PayRol11(id int primary key,name varchar(30),phone_Number varchar(10),Department varchar(50),gender char(1),basic_pay float,deduction float,TaxablePay float,tax float,Netpay float,StartDate date,city varchar(100),country varchar(200));
 Query OK, 0 rows affected (1.08 sec)
 
@@ -168,3 +181,13 @@ mysql> describe Employee_PayRol11;
 | country      | varchar(200) | YES  |     | NULL    |       |
 +--------------+--------------+------+-----+---------+-------+
 13 rows in set (0.01 sec)
+
+UC9
+
+select * from  Employee_PayRol11;
++----+---------+--------------+------------+--------+-----------+-----------+------------+------+--------+------------+------+---------+
+| id | name    | phone_Number | Department | gender | basic_pay | deduction | TaxablePay | tax  | Netpay | StartDate  | city | country |
++----+---------+--------------+------------+--------+-----------+-----------+------------+------+--------+------------+------+---------+
+|  1 | kalyani | 9563214563   | IT         | F      |     30000 |      2000 |       1000 |  500 |   1000 | 2018-05-03 | pune | mumbai  |
++----+---------+--------------+------------+--------+-----------+-----------+------------+------+--------+------------+------+---------+
+1 row in set (0.00 sec)
