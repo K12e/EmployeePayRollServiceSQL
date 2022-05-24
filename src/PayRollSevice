@@ -146,4 +146,25 @@ mysql> select * from employeePayroll;
 
 mysql>drop database payroll_service;
 
+create table Employee_PayRol11(id int primary key,name varchar(30),phone_Number varchar(10),Department varchar(50),gender char(1),basic_pay float,deduction float,TaxablePay float,tax float,Netpay float,StartDate date,city varchar(100),country varchar(200));
+Query OK, 0 rows affected (1.08 sec)
 
+mysql> describe Employee_PayRol11;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| id           | int          | NO   | PRI | NULL    |       |
+| name         | varchar(30)  | YES  |     | NULL    |       |
+| phone_Number | varchar(10)  | YES  |     | NULL    |       |
+| Department   | varchar(50)  | YES  |     | NULL    |       |
+| gender       | char(1)      | YES  |     | NULL    |       |
+| basic_pay    | float        | YES  |     | NULL    |       |
+| deduction    | float        | YES  |     | NULL    |       |
+| TaxablePay   | float        | YES  |     | NULL    |       |
+| tax          | float        | YES  |     | NULL    |       |
+| Netpay       | float        | YES  |     | NULL    |       |
+| StartDate    | date         | YES  |     | NULL    |       |
+| city         | varchar(100) | YES  |     | NULL    |       |
+| country      | varchar(200) | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+13 rows in set (0.01 sec)
