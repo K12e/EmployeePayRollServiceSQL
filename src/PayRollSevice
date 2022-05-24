@@ -159,10 +159,11 @@ describe Employee_Payrol;
 +---------------------+--------------+------+-----+---------+-------+
 3 rows in set (0.01 sec)
 
-create table Employee_PayRol11(id int primary key,name varchar(30),phone_Number varchar(10),Department varchar(50),gender char(1),basic_pay float,deduction float,TaxablePay float,tax float,Netpay float,StartDate date,city varchar(100),country varchar(200));
-Query OK, 0 rows affected (1.08 sec)
+ALTER TABLE Employee_payrol11 ADD deductions DOUBLE NOT NULL AFTER basic_pay,ADD taxable_pay DOUBLE NOT NULL AFTER deductions,ADD income_tax DOUBLE NOT NULL AFTER taxable_pay, ADD net_pay DOUBLE NOT NULL AFTER income_tax;
+Query OK, 0 rows affected (1.48 sec)
+Records: 0  Duplicates: 0  Warnings: 0
 
-mysql> describe Employee_PayRol11;
+mysql> describe Employee_payrol11;
 +--------------+--------------+------+-----+---------+-------+
 | Field        | Type         | Null | Key | Default | Extra |
 +--------------+--------------+------+-----+---------+-------+
@@ -172,6 +173,10 @@ mysql> describe Employee_PayRol11;
 | Department   | varchar(50)  | YES  |     | NULL    |       |
 | gender       | char(1)      | YES  |     | NULL    |       |
 | basic_pay    | float        | YES  |     | NULL    |       |
+| deductions   | double       | NO   |     | NULL    |       |
+| taxable_pay  | double       | NO   |     | NULL    |       |
+| income_tax   | double       | NO   |     | NULL    |       |
+| net_pay      | double       | NO   |     | NULL    |       |
 | deduction    | float        | YES  |     | NULL    |       |
 | TaxablePay   | float        | YES  |     | NULL    |       |
 | tax          | float        | YES  |     | NULL    |       |
@@ -179,9 +184,7 @@ mysql> describe Employee_PayRol11;
 | StartDate    | date         | YES  |     | NULL    |       |
 | city         | varchar(100) | YES  |     | NULL    |       |
 | country      | varchar(200) | YES  |     | NULL    |       |
-+--------------+--------------+------+-----+---------+-------+
-13 rows in set (0.01 sec)
-
++--------------+--------------+------+-----+---------+--
 UC9
 
 select * from  Employee_PayRol11;
