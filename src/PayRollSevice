@@ -146,51 +146,69 @@ mysql> select * from employeePayroll;
 
 mysql>drop database payroll_service;
 
-create table Employee_Payrol (employee_phone int(10) not null, employee_Address varchar(100),employee_Department varchar(50));
-Query OK, 0 rows affected, 1 warning (0.56 sec)
+UC8:
 
-describe Employee_Payrol;
-+---------------------+--------------+------+-----+---------+-------+
-| Field               | Type         | Null | Key | Default | Extra |
-+---------------------+--------------+------+-----+---------+-------+
-| employee_phone      | int          | NO   |     | NULL    |       |
-| employee_Address    | varchar(100) | YES  |     | NULL    |       |
-| employee_Department | varchar(50)  | YES  |     | NULL    |       |
-+---------------------+--------------+------+-----+---------+-------+
-3 rows in set (0.01 sec)
+mysql> select * from employeepayroll;
++----+---------+--------+---------+------------+
+| id | name    | gender | salary  | start      |
++----+---------+--------+---------+------------+
+|  1 | Bill    | M      | 1000000 | 2018-01-03 |
+|  2 | Terissa | F      | 3000000 | 2019-11-13 |
+|  3 | charlie | M      | 3000000 | 2020-05-21 |
++----+---------+--------+---------+------------+
+3 rows in set (0.00 sec)
 
-ALTER TABLE Employee_payrol11 ADD deductions DOUBLE NOT NULL AFTER basic_pay,ADD taxable_pay DOUBLE NOT NULL AFTER deductions,ADD income_tax DOUBLE NOT NULL AFTER taxable_pay, ADD net_pay DOUBLE NOT NULL AFTER income_tax;
-Query OK, 0 rows affected (1.48 sec)
+mysql> alter table employeePayroll add phone_no varchar(15) after name;
+Query OK, 0 rows affected (0.49 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
-mysql> describe Employee_payrol11;
-+--------------+--------------+------+-----+---------+-------+
-| Field        | Type         | Null | Key | Default | Extra |
-+--------------+--------------+------+-----+---------+-------+
-| id           | int          | NO   | PRI | NULL    |       |
-| name         | varchar(30)  | YES  |     | NULL    |       |
-| phone_Number | varchar(10)  | YES  |     | NULL    |       |
-| Department   | varchar(50)  | YES  |     | NULL    |       |
-| gender       | char(1)      | YES  |     | NULL    |       |
-| basic_pay    | float        | YES  |     | NULL    |       |
-| deductions   | double       | NO   |     | NULL    |       |
-| taxable_pay  | double       | NO   |     | NULL    |       |
-| income_tax   | double       | NO   |     | NULL    |       |
-| net_pay      | double       | NO   |     | NULL    |       |
-| deduction    | float        | YES  |     | NULL    |       |
-| TaxablePay   | float        | YES  |     | NULL    |       |
-| tax          | float        | YES  |     | NULL    |       |
-| Netpay       | float        | YES  |     | NULL    |       |
-| StartDate    | date         | YES  |     | NULL    |       |
-| city         | varchar(100) | YES  |     | NULL    |       |
-| country      | varchar(200) | YES  |     | NULL    |       |
-+--------------+--------------+------+-----+---------+--
-UC9
+mysql> alter table employeePayroll add Address varchar(250) after phone_no;
+Query OK, 0 rows affected (0.34 sec)
+Records: 0  Duplicates: 0  Warnings: 0
 
-select * from  Employee_PayRol11;
-+----+---------+--------------+------------+--------+-----------+-----------+------------+------+--------+------------+------+---------+
-| id | name    | phone_Number | Department | gender | basic_pay | deduction | TaxablePay | tax  | Netpay | StartDate  | city | country |
-+----+---------+--------------+------------+--------+-----------+-----------+------------+------+--------+------------+------+---------+
-|  1 | kalyani | 9563214563   | IT         | F      |     30000 |      2000 |       1000 |  500 |   1000 | 2018-05-03 | pune | mumbai  |
-+----+---------+--------------+------------+--------+-----------+-----------+------------+------+--------+------------+------+---------+
-1 row in set (0.00 sec)
+mysql> alter table employeePayroll add Department varchar(100) after Address;
+Query OK, 0 rows affected (0.27 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employeePayroll alter Address set Default 'TBD' ;
+Query OK, 0 rows affected (0.30 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe employeePayroll;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | int unsigned | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(20)  | NO   |     | NULL    |                |
+| phone_no   | varchar(15)  | YES  |     | NULL    |                |
+| Address    | varchar(250) | YES  |     | TBD     |                |
+| Department | varchar(100) | YES  |     | NULL    |                |
+| gender     | char(1)      | YES  |     | NULL    |                |
+| salary     | double       | NO   |     | NULL    |                |
+| start      | date         | NO   |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+8 rows in set (0.01 sec)
+
+mysql> select * from employeepayroll;
++----+---------+----------+---------+------------+--------+---------+------------+
+| id | name    | phone_no | Address | Department | gender | salary  | start      |
++----+---------+----------+---------+------------+--------+---------+------------+
+|  1 | Bill    | NULL     | NULL    | NULL       | M      | 1000000 | 2018-01-03 |
+|  2 | Terissa | NULL     | NULL    | NULL       | F      | 3000000 | 2019-11-13 |
+|  3 | charlie | NULL     | NULL    | NULL       | M      | 3000000 | 2020-05-21 |
++----+---------+----------+---------+------------+--------+---------+------------+
+3 rows in set (0.00 sec)
+
+mysql> insert into employeePayroll(name,salary,start) values ("Mark",1000000.00,"2018-01-03");
+Query OK, 1 row affected (0.08 sec)
+
+mysql> select * from employeepayroll;
++----+---------+----------+---------+------------+--------+---------+------------+
+| id | name    | phone_no | Address | Department | gender | salary  | start      |
++----+---------+----------+---------+------------+--------+---------+------------+
+|  1 | Bill    | NULL     | NULL    | NULL       | M      | 1000000 | 2018-01-03 |
+|  2 | Terissa | NULL     | NULL    | NULL       | F      | 3000000 | 2019-11-13 |
+|  3 | charlie | NULL     | NULL    | NULL       | M      | 3000000 | 2020-05-21 |
+|  4 | Mark    | NULL     | TBD     | NULL       | NULL   | 1000000 | 2018-01-03 |
++----+---------+----------+---------+------------+--------+---------+------------+
+4 rows in set (0.00 sec)
